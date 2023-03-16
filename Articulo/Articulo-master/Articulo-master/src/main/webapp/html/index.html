@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Articulo</title>
+    <link rel="stylesheet" href="../css/indexDiseño.css">
+</head>
+
+<body>
+<header>
+<nav class="nav">
+    <div class="caja__titulo">
+        <h2 class="nav__titulo">Protecting Browsers from Cross-Origin CSS Attacks</h2>
+    </div>
+    <div class="caja__ul">
+        <ul class="nav__ul">
+            <li class="nav__li"><a href="#home">Autores</a></li>
+            <li class="nav__li"><a href="#articulos">Problema</a></li>
+            <li class="nav__li"><a href="#contacto">Soluciones</a></li>
+            <li class="nav__li"><a href="#contacto">Experimento</a></li>
+            <li class="nav__li"><a href="#id-contacto">Informacion</a></li>
+        </ul>
+    </div>
+</nav>
+</header>
+
+<main>
+<section>
+    <article id="autores" class="sobreAutores">
+        <h2 class="sobreAutores-h2">Autores</h2>
+        <div class="sobreAutores__cajaAutores">
+        <div class="cajaAutores__cajaAutor"><img class="cajaAutor-img" src="../images/Lin-Shung Huang.jpeg"/></div>
+        <div class="cajaAutores__cajaAutor"><img class="cajaAutor-img" src="../images/Chris Evans.jpeg"/></div>
+        <div class="cajaAutores__cajaAutor"><img class="cajaAutor-img" src="../images/Zack Weinberg.jpeg"/></div>
+        <div class="cajaAutores__cajaAutor"><img class="cajaAutor-img" src="../images/Collin Jackson.jpeg"/></div>
+        </div>
+    </article>
+
+    <article id="id-problema" class="problema">
+        <h3 class="problema-h3">Problema</h3>
+        <div class="problema__caja">
+            <p>Los autores del artículo reconocen y plantean soluciones frente a los ataques CSS de origen cruzado. 
+                Estos ataques son básicamente una técnica de ataque en la que un atacante puede inyectar código CSS
+                malicioso en una página web vulnerable, que luego se ejecuta en el navegador de la víctima. Esto mediante 
+                entradas del usuario que no son filtradas correctamente y gracias problemas con el manejo de errores 
+                sintácticos de CSS, se permiten el “linkeo” de hojas de estilo CSS maliciosas que se cargan al servidor web
+                y afectan al contenido de la web. El objetivo del ataque es modificar la apariencia visual de la página web 
+                para engañar a la víctima y hacer que haga clic en enlaces maliciosos o proporcione información confidencial 
+                solicitandoles esa información en formularios con una apariencia similar a la página web que se intentó atacar.
+                Todo esto sin el uso de Javascript, únicamente explotando vulnerabilidades con CSS.
+                En este artículo los autores plantean que para prevenir este tipo de ataques, es importante que los 
+                desarrolladores web filtren adecuadamente la entrada del usuario y validen todos los datos para asegurar 
+                de que no contengan sentencias maliciosas, antes de enviarlas al servidor. También se recomienda el uso de 
+                herramientas de seguridad en la capa de aplicación, como firewalls de aplicaciones web, y tener una política 
+                de seguridad de contenido (CSP), la cual es una capa adicional de seguridad que permite a los desarrolladores 
+                web controlar qué recursos se pueden cargar en un sitio web, incluidas las hojas de estilo. 
+                </p>
+        </div>
+    </article>
+
+    <article id="id-solucion" class="otrasSoluciones">
+        <h3 class="otrasSoluciones-h3">Otras Soluciones</h3>
+        <div class="otrasSoluciones__caja">
+
+            <h4>Newlines</h4>
+            <p>
+                El estándar CSS no permite que las cadenas de texto y las URLs contengan saltos de línea. La mayoría de los navegadores hacen cumplir esta regla para prevenir ataques CSS de origen cruzado. Para defenderse contra este tipo de ataques, se pueden insertar saltos de línea antes y después de los posibles puntos de inyección.
+            </p>
+            <h4>HTML Encoding</h4>
+            <p>
+                Es una técnica utilizada para proteger las aplicaciones web contra ataques XSS que consisten en la inyección de código malicioso en una página web. Esta técnica implica la sustitución de ciertos caracteres especiales, como las comillas y los corchetes, con códigos HTML conocidos como "entidades HTML". Al hacerlo, los caracteres especiales se convierten en texto que el navegador web interpreta como texto plano, en lugar de como código ejecutable. Además, es importante asegurarse de que la página web tenga una declaración de conjunto de caracteres adecuada, para evitar que un atacante pueda descifrar la codificación HTML sustituyendo la página a UTF-7.
+            </p>
+
+            <h4>Avoid Ambient Authentication</h4>
+            <p>
+                El navegador transmite información de autenticación con cualquier solicitud al sitio de destino. El esquema de autenticación de clave web evita el uso de esta información ambiental y bloquea varios tipos de ataques. Sin embargo, si una URL con credenciales se vuelve visible para el usuario víctima, podría ser engañado para revelarlas, por lo que se debe evaluar si este riesgo es aceptable.
+            </p>
+
+            
+        </div>
+    </article>
+
+    <article id="id-experimento" class="experimento">
+        <h3>Experimento</h3>
+        <div class="Experimento__caja">
+            <p>Para la demostración de la hipótesis correspondiente al problema planteado, se usa un modelo de amenazas en el cual se exponen tres principales aspectos. Estos aspectos son la exposición de las habilidades del atacante, el comportamiento que se espera y se cree que toma el atacante para la realización del ataque y el comportamiento de la víctima en el mismo.
+
+                Habilidades del atacante. Primeramente, se debe mencionar que este corresponde a una persona maliciosa que cuenta con un dominio y opera en un servidor web. Su objetivo es robar información confidencial de otro sitio web que debería de ser únicamente para la víctima y no el atacante.
+                
+                Comportamiento esperado por parte del atacante. Esta persona puede manipular tráfico de red, pero únicamente desde sus propios servidores. Además, no puede escuchar o modificar el tráfico de red de otros usuarios o sitios web. Este puede generar paquetes falsos para intentar acceder al lado del usuario. Sin embargo, no es posible que instale en la computadora de la víctima.
+                
+                Comportamiento de la víctima. Lo más probable es que el atacante envíe publicidad engañosa para hacer a la víctima caer y acceder en sitios web maliciosos para de esta forma, realizar el ataque enviando información a los servidores. 
+                
+                Es importante mencionar que, el CSS cuando hay errores no ocurre un problema como tal para poder llevar a cabo las demás instrucciones. En el momento en que se encuentra un error, simplemente se salta a la línea siguiente y se continúan ejecutando las instrucciones. Es por esto, que muchos ataques se intentan hacer por medio de CSS.
+                </p>
+        </div>
+    </article>
+</section>
+</main>
+
+<footer id="id-contacto" class="contacto">
+
+    <div>
+        <div class="contactoinfo__caja">
+        <ul class="contactoinfo__ul">
+            <li class="contactoinfo__li"> <a href="https://dl.acm.org.una.remotexs.co/doi/10.1145/1866307.1866376">Link de Referencia</a> </li>
+            <li class="contactoinfo__li"> <p>Fecha de publicacion: 2010-10-04</p> </li>
+            <li class="contactoinfo__li"> <p>Creadores de la pagina: Dylan - Prisicila - Ariel</p> </li>
+           
+        </ul>
+        </div>
+
+        <h3>Protecting Browsers from Cross-Origin CSS Attacks</h3>
+
+        </div>
+</footer>
+
+</body>
+</html>
